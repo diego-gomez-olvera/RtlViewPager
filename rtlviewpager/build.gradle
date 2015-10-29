@@ -1,0 +1,52 @@
+apply plugin: 'com.android.library'
+
+ext {
+    bintrayRepo = 'maven'
+    bintrayName = 'RtlViewPager'
+
+    publishedGroupId = 'com.booking'
+    libraryName = 'rtlviewpager'
+    artifact = 'rtlviewpager'
+
+    libraryDescription = 'ViewPager that displays items from right to left for RTL locales and behaves like a regular ViewPager otherwise'
+
+    siteUrl = 'https://github.com/diego-gomez-olvera/RtlViewPager'
+    gitUrl = 'https://github.com/diego-gomez-olvera/RtlViewPager.git'
+
+    libraryVersion = '1.0.0'
+
+    developerId = 'diego-gomez-olvera'
+    developerName = 'Diego Gómez Olvera'
+    developerEmail = 'diego.gomez.olvera@gmail.com'
+
+    licenseName = 'The Apache Software License, Version 2.0'
+    licenseUrl = 'http://www.apache.org/licenses/LICENSE-2.0.txt'
+    allLicenses = ["Apache-2.0"]
+}
+
+android {
+    compileSdkVersion 23
+    buildToolsVersion "23.0.0"
+
+    defaultConfig {
+        minSdkVersion 15
+        targetSdkVersion 23
+        versionCode 1
+        versionName "1.0"
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+}
+
+dependencies {
+    compile 'com.android.support:support-v4:23.1.0'
+    compile 'com.android.support:support-annotations:23.1.0'
+}
+
+
+apply from: 'https://raw.githubusercontent.com/nuuneoi/JCenter/master/installv1.gradle'
+apply from: 'https://raw.githubusercontent.com/nuuneoi/JCenter/master/bintrayv1.gradle'
