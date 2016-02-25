@@ -235,14 +235,22 @@ public class RtlViewPager extends ViewPager {
         @NonNull
         private final OnPageChangeListener original;
 
+        private int pagerPosition;
+
         private ReverseOnPageChangeListener(@NonNull OnPageChangeListener original) {
             this.original = original;
+            pagerPosition = -1;
         }
 
         @Override
         public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
             if (!suppressOnPageChangeListeners) {
-                original.onPageScrolled(reverse(position), 1f - positionOffset, positionOffsetPixels);
+                if (positionOffset == 0f && positionOffsetPixels == 0) {
+                    pagerPosition = reverse(position);
+                } else {
+                    pagerPosition = reverse(position + 1);
+                }
+                original.onPageScrolled(pagerPosition, positionOffset > 0 ? 1f - positionOffset : positionOffset, positionOffsetPixels);
             }
         }
 
