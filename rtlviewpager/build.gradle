@@ -13,7 +13,7 @@ ext {
     siteUrl = 'https://github.com/diego-gomez-olvera/RtlViewPager'
     gitUrl = 'https://github.com/diego-gomez-olvera/RtlViewPager.git'
 
-    libraryVersion = '1.0.0'
+    libraryVersion = '1.0.1'
 
     developerId = 'diego-gomez-olvera'
     developerName = 'Diego Gómez Olvera'
