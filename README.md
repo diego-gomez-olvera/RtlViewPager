@@ -19,7 +19,7 @@ Import it using gradle
 
 	dependencies {
 		...
-	    compile 'com.booking:rtlviewpager:1.0.0'
+	    compile 'com.booking:rtlviewpager:1.0.1'
 	}
 
 And replace your ViewPager instances by RtlViewPager. RtlViewPager extends ViewPager so you can also use it for your custom ViewPager implementations.
