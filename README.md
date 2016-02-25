@@ -9,6 +9,8 @@ Android is continuously improving support of different languages. It has been po
 Having a global market and focusing on the user means that as a developer you want to provide the best possible user experience for any user in simple way, and that was the main motivation for this component. The simple solution would have been following the norm and use the regular ViewPager, but sometimes you need to go beyond the norm to achieve the result that you expect.  
 
 
+![image](demos/RtlViewPager.gif =360x600)
+
 Usage
 -------------
  
