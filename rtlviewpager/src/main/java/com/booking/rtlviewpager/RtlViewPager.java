@@ -140,7 +140,8 @@ public class RtlViewPager extends ViewPager {
     }
 
     protected boolean isRtl() {
-        return TextUtilsCompat.getLayoutDirectionFromLocale(Locale.getDefault()) == ViewCompat.LAYOUT_DIRECTION_RTL;
+        return TextUtilsCompat.getLayoutDirectionFromLocale(
+                getContext().getResources().getConfiguration().locale) == ViewCompat.LAYOUT_DIRECTION_RTL;
     }
 
     @Override
