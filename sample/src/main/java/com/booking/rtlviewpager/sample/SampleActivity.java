@@ -15,49 +15,48 @@
  */
 package com.booking.rtlviewpager.sample;
 
-import android.app.Activity;
 import android.graphics.Color;
 import android.os.Bundle;
+import android.support.design.widget.TabLayout;
 import android.support.v4.view.PagerAdapter;
 import android.support.v4.view.ViewPager;
+import android.support.v7.app.AppCompatActivity;
 import android.view.Gravity;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
-
-import com.booking.rtlviewpager.RtlViewPager;
-
-import java.text.DateFormatSymbols;
-
 import static android.view.ViewGroup.LayoutParams.MATCH_PARENT;
 
-public class SampleActivity extends Activity {
+public class SampleActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        ViewPager viewPager = new RtlViewPager(this);
-        setContentView(viewPager);
-        viewPager.setAdapter(new TextViewPagerAdapter(DateFormatSymbols.getInstance().getMonths()));
+        setContentView(R.layout.sample);
+        TabLayout tabs = (TabLayout) findViewById(R.id.tabs);
+        ViewPager viewPager = (ViewPager) findViewById(R.id.pager);
+        TextViewPagerAdapter adapter = new TextViewPagerAdapter(3);
+        viewPager.setAdapter(adapter);
+        tabs.setupWithViewPager(viewPager);
     }
 
     static class TextViewPagerAdapter extends PagerAdapter {
 
-        private final String[] items;
+        private int pages;
 
-        TextViewPagerAdapter(String[] items) {
-            this.items = items;
+        TextViewPagerAdapter(int pages) {
+            this.pages = pages;
         }
 
         @Override
         public int getCount() {
-            return items.length;
+            return pages;
         }
 
         @Override
         public Object instantiateItem(final ViewGroup container, int position) {
-            final String item = items[position];
+            final String item = "Page " + position;
             final TextView text = new TextView(container.getContext());
             text.setGravity(Gravity.CENTER);
             text.setBackgroundColor(Color.WHITE);
@@ -67,6 +66,11 @@ public class SampleActivity extends Activity {
             container.addView(text, MATCH_PARENT, MATCH_PARENT);
             text.setTag(item);
             return item;
+        }
+
+        @Override
+        public CharSequence getPageTitle(int position) {
+            return String.valueOf(position);
         }
 
         @Override
