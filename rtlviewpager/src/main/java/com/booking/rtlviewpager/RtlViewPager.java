@@ -306,7 +306,7 @@ public class RtlViewPager extends ViewPager {
             }
             superState = in.readParcelable(loader);
             position = in.readInt();
-            isRTL = in.readByte() == 1;
+            isRTL = in.readByte() != 0;
         }
 
         @Override
