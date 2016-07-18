@@ -18,6 +18,8 @@ package com.booking.rtlviewpager;
 
 import android.content.Context;
 import android.database.DataSetObserver;
+import android.os.Parcel;
+import android.os.Parcelable;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.text.TextUtilsCompat;
@@ -161,6 +163,17 @@ public class RtlViewPager extends ViewPager {
         super.removeOnPageChangeListener(listener);
     }
 
+    @Override
+    public Parcelable onSaveInstanceState() {
+        return new SavedState(super.onSaveInstanceState(), getCurrentItem(), isRtl());
+    }
+
+    @Override
+    public void onRestoreInstanceState(Parcelable state) {
+        SavedState ss = (SavedState) state;
+        super.onRestoreInstanceState(ss.superState);
+        if (ss.isRTL != isRtl()) setCurrentItem(ss.position, false);
+    }
 
     private class ReverseAdapter extends PagerAdapterWrapper {
 
@@ -272,5 +285,57 @@ public class RtlViewPager extends ViewPager {
             final PagerAdapter adapter = getAdapter();
             return adapter == null ? position : adapter.getCount() - position - 1;
         }
+    }
+
+    public static class SavedState implements Parcelable {
+
+        Parcelable superState;
+        int position;
+        boolean isRTL;
+
+        public SavedState(Parcelable superState, int position, boolean isRTL) {
+            super();
+            this.superState = superState;
+            this.position = position;
+            this.isRTL = isRTL;
+        }
+
+        SavedState(Parcel in, ClassLoader loader) {
+            if (loader == null) {
+                loader = getClass().getClassLoader();
+            }
+            superState = in.readParcelable(loader);
+            position = in.readInt();
+            isRTL = in.readByte() != 0;
+        }
+
+        @Override
+        public void writeToParcel(Parcel out, int flags) {
+            out.writeParcelable(superState, flags);
+            out.writeInt(position);
+            out.writeByte(isRTL ? (byte) 1 : (byte) 0);
+        }
+
+        @Override
+        public int describeContents() {
+            return 0;
+        }
+
+        public static final ClassLoaderCreator<SavedState> CREATOR = new
+                ClassLoaderCreator<SavedState>() {
+            @Override
+            public SavedState createFromParcel(Parcel source, ClassLoader loader) {
+                return new SavedState(source, loader);
+            }
+
+            @Override
+            public SavedState createFromParcel(Parcel source) {
+                return new SavedState(source, null);
+            }
+
+            public SavedState[] newArray(int size) {
+                return new SavedState[size];
+            }
+        };
     }
 }
