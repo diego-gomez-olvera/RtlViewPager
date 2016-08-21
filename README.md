@@ -24,7 +24,8 @@ Import it using gradle
 
 And replace your ViewPager instances by RtlViewPager. RtlViewPager extends ViewPager so you can also use it for your custom ViewPager implementations.
 
-	ViewPager viewPager = new RtlViewPager(context);
+	com.booking.rtlviewpager.RtlViewPager viewPager = (com.booking.rtlviewpager.RtlViewPager) findViewById(R.id.viewpager);
+        setupViewPager(viewPager);
 	
 No further changes are needed.
 
