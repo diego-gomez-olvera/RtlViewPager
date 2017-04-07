@@ -1,5 +1,6 @@
 /*
- * Copyright 2015 Diego Gómez Olvera
+ * Copyright (C) 2017 Yota Devices LLC
+ * Copyright (C) 2015 Diego Gómez Olvera
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
