@@ -30,103 +30,103 @@ import android.view.ViewGroup;
 class PagerAdapterWrapper extends PagerAdapter {
 
     @NonNull
-    private final PagerAdapter adapter;
+    private final PagerAdapter mAdapter;
     @NonNull
-    private final DataSetObservable dataSetObservable = new DataSetObservable();
+    private final DataSetObservable mDataSetObservable = new DataSetObservable();
 
     protected PagerAdapterWrapper(@NonNull PagerAdapter adapter) {
-        this.adapter = adapter;
-        this.adapter.registerDataSetObserver(new DataSetObserver() {
+        mAdapter = adapter;
+        mAdapter.registerDataSetObserver(new DataSetObserver() {
             @Override
             public void onChanged() {
                 PagerAdapterWrapper.super.notifyDataSetChanged();
-                dataSetObservable.notifyChanged();
+                mDataSetObservable.notifyChanged();
             }
 
             @Override
             public void onInvalidated() {
-                dataSetObservable.notifyInvalidated();
+                mDataSetObservable.notifyInvalidated();
             }
         });
     }
 
     @NonNull
     public PagerAdapter getInnerAdapter() {
-        return adapter;
+        return mAdapter;
     }
 
     @Override
     public int getCount() {
-        return adapter.getCount();
+        return mAdapter.getCount();
     }
 
     @Override
     public boolean isViewFromObject(View view, Object object) {
-        return adapter.isViewFromObject(view, object);
+        return mAdapter.isViewFromObject(view, object);
     }
 
     @Override
     public CharSequence getPageTitle(int position) {
-        return adapter.getPageTitle(position);
+        return mAdapter.getPageTitle(position);
     }
 
     @Override
     public float getPageWidth(int position) {
-        return adapter.getPageWidth(position);
+        return mAdapter.getPageWidth(position);
     }
 
     @Override
     public int getItemPosition(Object object) {
-        return adapter.getItemPosition(object);
+        return mAdapter.getItemPosition(object);
     }
 
     @Override
     public Object instantiateItem(ViewGroup container, int position) {
-        return adapter.instantiateItem(container, position);
+        return mAdapter.instantiateItem(container, position);
     }
 
     @Override
     public void destroyItem(ViewGroup container, int position, Object object) {
-        adapter.destroyItem(container, position, object);
+        mAdapter.destroyItem(container, position, object);
     }
 
     @Override
     public void setPrimaryItem(ViewGroup container, int position, Object object) {
-        adapter.setPrimaryItem(container, position, object);
+        mAdapter.setPrimaryItem(container, position, object);
     }
 
     @Override
     public void notifyDataSetChanged() {
-        adapter.notifyDataSetChanged();
+        mAdapter.notifyDataSetChanged();
     }
 
     @Override
     public void registerDataSetObserver(DataSetObserver observer) {
-        dataSetObservable.registerObserver(observer);
+        mDataSetObservable.registerObserver(observer);
     }
 
     @Override
     public void unregisterDataSetObserver(DataSetObserver observer) {
-        dataSetObservable.unregisterObserver(observer);
+        mDataSetObservable.unregisterObserver(observer);
     }
 
     @Override
     public Parcelable saveState() {
-        return adapter.saveState();
+        return mAdapter.saveState();
     }
 
     @Override
     public void restoreState(Parcelable state, ClassLoader loader) {
-        adapter.restoreState(state, loader);
+        mAdapter.restoreState(state, loader);
     }
 
     @Override
     public void startUpdate(ViewGroup container) {
-        adapter.startUpdate(container);
+        mAdapter.startUpdate(container);
     }
 
     @Override
     public void finishUpdate(ViewGroup container) {
-        adapter.finishUpdate(container);
+        mAdapter.finishUpdate(container);
     }
 }

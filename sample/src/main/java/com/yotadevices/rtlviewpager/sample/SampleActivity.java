@@ -42,17 +42,17 @@ public class SampleActivity extends AppCompatActivity {
         tabs.setupWithViewPager(viewPager);
     }
 
-    static class TextViewPagerAdapter extends PagerAdapter {
+    private static class TextViewPagerAdapter extends PagerAdapter {
 
-        private int pages;
+        private int mPages;
 
         TextViewPagerAdapter(int pages) {
-            this.pages = pages;
+            mPages = pages;
         }
 
         @Override
         public int getCount() {
-            return pages;
+            return mPages;
         }
 
         @Override
