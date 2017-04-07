@@ -1,8 +1,8 @@
 # RtlViewPager
-For of the RtlViewPager. ViewPager that displays items from right to left for RTL locales and behaves like a regular ViewPager otherwise
+Fork of the RtlViewPager. ViewPager that displays items from right to left for RTL locales and behaves like a regular ViewPager otherwise
 
 ### Acknowledgment
-The repository is a forl of RtlViewPager with some additional fixes. This module was originally developed for Booking.com. With approval from Booking.com, this module was generalized and published on GitHub and jCenter.
+The repository is a fork of RtlViewPager with some additional fixes. This module was originally developed for Booking.com. With approval from Booking.com, this module was generalized and published on GitHub and jCenter.
 
 ### License
 ```Text
