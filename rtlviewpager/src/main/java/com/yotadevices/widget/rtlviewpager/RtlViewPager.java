@@ -13,7 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package com.booking.rtlviewpager;
+package com.yotadevices.widget.rtlviewpager;
 
 
 import android.content.Context;

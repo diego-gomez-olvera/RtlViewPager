@@ -13,7 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package com.booking.rtlviewpager.sample;
+package com.yotadevices.rtlviewpager.sample;
 
 import android.graphics.Color;
 import android.os.Bundle;
@@ -25,6 +25,8 @@ import android.view.Gravity;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
+
+import com.yotadevices.rtlviewpager.sample.R;
 
 import static android.view.ViewGroup.LayoutParams.MATCH_PARENT;
 
