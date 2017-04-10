@@ -1,39 +1,57 @@
+/*
+ * Copyright (C) 2017 Yota Devices LLC
+ * Copyright (C) 2015 Diego Gómez Olvera
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *      http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
 apply plugin: 'com.android.library'
 
 ext {
-    bintrayRepo = 'maven'
-    bintrayName = 'RtlViewPager'
+    bintrayRepo         = 'maven'
+    bintrayName         = 'RtlViewPager'
 
-    publishedGroupId = 'com.booking'
-    libraryName = 'rtlviewpager'
-    artifact = 'rtlviewpager'
+    publishedGroupId    = 'com.yotadevices.widget'
+    libraryName         = 'rtlviewpager'
+    artifact            = 'rtlviewpager'
 
-    libraryDescription = 'ViewPager that displays items from right to left for RTL locales and behaves like a regular ViewPager otherwise'
+    libraryDescription  = '''Fork of the RtlViewPager.
+            ViewPager that displays items from right to left for RTL locales and behaves like a regular ViewPager otherwise'''
 
-    siteUrl = 'https://github.com/diego-gomez-olvera/RtlViewPager'
-    gitUrl = 'https://github.com/diego-gomez-olvera/RtlViewPager.git'
+    siteUrl             = 'https://github.com/yotadevices/RtlViewPager'
+    gitUrl              = 'https://github.com/yotadevices/RtlViewPager.git'
 
-    libraryVersion = '1.0.1'
+    libraryVersion      = "${majorVersion}.${minorVersion}"
 
-    developerId = 'diego-gomez-olvera'
-    developerName = 'Diego Gómez Olvera'
-    developerEmail = 'diego.gomez.olvera@gmail.com'
+    developerId         = "dmitvitalii"
+    developerName       = "Vitalii Dmitriev"
+    developerEmail      = "dmit.vitalii@gmail.com"
 
-    licenseName = 'The Apache Software License, Version 2.0'
-    licenseUrl = 'http://www.apache.org/licenses/LICENSE-2.0.txt'
-    allLicenses = ["Apache-2.0"]
+    licenseName         = 'The Apache Software License, Version 2.0'
+    licenseUrl          = 'http://www.apache.org/licenses/LICENSE-2.0.txt'
+    allLicenses         = ["Apache-2.0"]
 }
 
 android {
-    compileSdkVersion 23
-    buildToolsVersion "23.0.2"
+    compileSdkVersion targetSdk
+    buildToolsVersion '25.0.1'
 
     defaultConfig {
-        minSdkVersion 15
-        targetSdkVersion 23
-        versionCode 2
-        versionName "1.0.1"
+        minSdkVersion minSdk
+        targetSdkVersion targetSdk
+        versionCode majorVersion
+        versionName "${majorVersion}.${minorVersion}"
     }
+
     buildTypes {
         release {
             minifyEnabled false
@@ -43,10 +61,9 @@ android {
 }
 
 dependencies {
-    compile 'com.android.support:support-v4:23.1.1'
-    compile 'com.android.support:support-annotations:23.1.1'
+    compile "com.android.support:support-v4:${supportVersion}"
+    compile "com.android.support:support-annotations:${supportVersion}"
 }
-
 
 apply from: 'https://raw.githubusercontent.com/nuuneoi/JCenter/master/installv1.gradle'
 apply from: 'https://raw.githubusercontent.com/nuuneoi/JCenter/master/bintrayv1.gradle'

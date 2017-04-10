@@ -1,5 +1,6 @@
 /*
- * Copyright 2015 Diego Gómez Olvera
+ * Copyright (C) 2017 Yota Devices LLC
+ * Copyright (C) 2015 Diego Gómez Olvera
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -13,7 +14,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package com.booking.rtlviewpager.sample;
+package com.yotadevices.rtlviewpager.sample;
 
 import android.graphics.Color;
 import android.os.Bundle;
@@ -41,27 +42,27 @@ public class SampleActivity extends AppCompatActivity {
         tabs.setupWithViewPager(viewPager);
     }
 
-    static class TextViewPagerAdapter extends PagerAdapter {
+    private static class TextViewPagerAdapter extends PagerAdapter {
 
-        private int pages;
+        private int mPages;
 
         TextViewPagerAdapter(int pages) {
-            this.pages = pages;
+            mPages = pages;
         }
 
         @Override
         public int getCount() {
-            return pages;
+            return mPages;
         }
 
         @Override
         public Object instantiateItem(final ViewGroup container, int position) {
-            final String item = "Page " + position;
-            final TextView text = new TextView(container.getContext());
+            String item = String.valueOf(position + 1);
+            TextView text = new TextView(container.getContext());
             text.setGravity(Gravity.CENTER);
             text.setBackgroundColor(Color.WHITE);
             text.setTextColor(Color.BLACK);
-            text.setTextSize(20);
+            text.setTextSize(160);
             text.setText(item);
             container.addView(text, MATCH_PARENT, MATCH_PARENT);
             text.setTag(item);
@@ -70,7 +71,7 @@ public class SampleActivity extends AppCompatActivity {
 
         @Override
         public CharSequence getPageTitle(int position) {
-            return String.valueOf(position);
+            return String.valueOf(position + 1);
         }
 
         @Override
