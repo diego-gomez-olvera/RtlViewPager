@@ -57,12 +57,12 @@ public class SampleActivity extends AppCompatActivity {
 
         @Override
         public Object instantiateItem(final ViewGroup container, int position) {
-            final String item = "Page " + position;
-            final TextView text = new TextView(container.getContext());
+            String item = String.valueOf(position + 1);
+            TextView text = new TextView(container.getContext());
             text.setGravity(Gravity.CENTER);
             text.setBackgroundColor(Color.WHITE);
             text.setTextColor(Color.BLACK);
-            text.setTextSize(20);
+            text.setTextSize(160);
             text.setText(item);
             container.addView(text, MATCH_PARENT, MATCH_PARENT);
             text.setTag(item);
@@ -71,7 +71,7 @@ public class SampleActivity extends AppCompatActivity {
 
         @Override
         public CharSequence getPageTitle(int position) {
-            return String.valueOf(position);
+            return String.valueOf(position + 1);
         }
 
         @Override
