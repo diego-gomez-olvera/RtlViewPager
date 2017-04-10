@@ -42,12 +42,12 @@ ext {
 }
 
 android {
-    compileSdkVersion 25
+    compileSdkVersion targetSdk
     buildToolsVersion '25.0.1'
 
     defaultConfig {
-        minSdkVersion 9
-        targetSdkVersion 25
+        minSdkVersion minSdk
+        targetSdkVersion targetSdk
         versionCode majorVersion
         versionName "${majorVersion}.${minorVersion}"
     }
