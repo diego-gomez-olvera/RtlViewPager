@@ -18,7 +18,7 @@ To use this library add following to your *module's* `build.gradle`:
 
 ```groovy
 dependencies {
-    compile 'com.yotadevices.widget:rtlviewpager:1.0.3'
+    compile 'com.yotadevices.widget:rtlviewpager:1.0.4'
 }
 ```
 
