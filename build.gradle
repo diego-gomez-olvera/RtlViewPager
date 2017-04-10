@@ -32,7 +32,7 @@ allprojects {
     ext {
         supportVersion = "25.3.1"
         majorVersion = 1
-        minorVersion = "0.3"
+        minorVersion = "0.4"
     }
 }
 
